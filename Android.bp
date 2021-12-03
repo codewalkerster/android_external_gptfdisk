@@ -1,6 +1,5 @@
-cc_binary {
-    name: "sgdisk",
-    host_supported: true,
+cc_defaults {
+    name: "sgdisk-defaults",
 
     srcs: [
         "sgdisk.cc",
@@ -36,4 +35,11 @@ cc_binary {
             ],
         },
     },
+}
+
+cc_binary {
+    name: "sgdisk",
+    defaults: ["sgdisk-defaults"],
+    host_supported: true,
+    recovery_available: true,
 }
